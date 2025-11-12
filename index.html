@@ -255,6 +255,47 @@
             font-size: 0.9rem;
         }
 
+        /* Music Player Button */
+        .music-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .music-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .music-button.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(102, 126, 234, 0.8);
+            }
+        }
+
+        .music-icon {
+            font-size: 1.8rem;
+            color: white;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nombre {
@@ -280,6 +321,17 @@
 
             .countdown-number {
                 font-size: 2rem;
+            }
+
+            .music-button {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .music-icon {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -376,6 +428,16 @@
         </footer>
     </div>
 
+    <!-- Music Player -->
+    <audio id="backgroundMusic" loop>
+        <source src="El Gran Día de Camila.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Button -->
+    <div class="music-button" id="musicButton" onclick="toggleMusic()">
+        <span class="music-icon" id="musicIcon">🎵</span>
+    </div>
+
     <script>
         // Countdown Timer
         const countdownDate = new Date("2026-01-10T13:00:00").getTime();
@@ -401,6 +463,37 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // Music Player Control
+        const music = document.getElementById('backgroundMusic');
+        const musicButton = document.getElementById('musicButton');
+        const musicIcon = document.getElementById('musicIcon');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.textContent = '🎵';
+                musicButton.classList.remove('playing');
+            } else {
+                music.play();
+                musicIcon.textContent = '🎶';
+                musicButton.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Auto-play attempt (may be blocked by browser)
+        window.addEventListener('load', function() {
+            music.play().then(() => {
+                isPlaying = true;
+                musicIcon.textContent = '🎶';
+                musicButton.classList.add('playing');
+            }).catch(() => {
+                // Auto-play was blocked, user needs to click
+                console.log('Auto-play blocked. Click the music button to play.');
+            });
+        });
     </script>
 </body>
 </html>
