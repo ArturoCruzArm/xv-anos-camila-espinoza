@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XV Años de Camila Espinoza Mejía</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        .mis-quince {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+        }
+
+        .nombre {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .fecha {
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            font-weight: 300;
+            letter-spacing: 0.2rem;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #764ba2;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            color: white;
+            min-width: 100px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Event Details */
+        .event-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+
+        .event-time {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 0.5rem 0;
+        }
+
+        .event-location {
+            color: #666;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .map-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Dress Code */
+        .dress-code {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .dress-code-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .dress-code-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .dress-code-text {
+            font-size: 1.3rem;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+        }
+
+        /* WhatsApp Confirmation */
+        .whatsapp-section {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 3rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nombre {
+                font-size: 3rem;
+            }
+
+            .mis-quince {
+                font-size: 1.5rem;
+            }
+
+            .fecha {
+                font-size: 1.2rem;
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                padding: 1rem 1.5rem;
+                min-width: 80px;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="mis-quince">Mis XV Años</div>
+                <h1 class="nombre">Camila</h1>
+                <h2 class="nombre" style="font-size: 3rem;">Espinoza Mejía</h2>
+                <p class="fecha">10 • Enero • 2025</p>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="section">
+            <h2 class="section-title">Cuenta Regresiva</h2>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details Section -->
+        <section class="section">
+            <h2 class="section-title">Celebremos Juntos</h2>
+            <div class="event-cards">
+                <!-- Misa -->
+                <div class="event-card">
+                    <div class="event-icon">⛪</div>
+                    <h3 class="event-title">Ceremonia Religiosa</h3>
+                    <p class="event-time">1:00 PM</p>
+                    <p class="event-location">
+                        <strong>Templo del Niño de la Salud</strong><br>
+                        La Martinica, León, Guanajuato
+                    </p>
+                    <a href="https://maps.google.com/?q=Templo+del+Niño+de+la+Salud+La+Martinica+León" class="map-button" target="_blank">Ver Mapa</a>
+                </div>
+
+                <!-- Fiesta -->
+                <div class="event-card">
+                    <div class="event-icon">🎉</div>
+                    <h3 class="event-title">Recepción</h3>
+                    <p class="event-time">3:00 PM</p>
+                    <p class="event-location">
+                        <strong>Salón La Casona</strong><br>
+                        La Martinica, León, Guanajuato
+                    </p>
+                    <a href="https://maps.google.com/?q=Salón+La+Casona+La+Martinica+León" class="map-button" target="_blank">Ver Mapa</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dress Code Section -->
+        <section class="section">
+            <h2 class="section-title">Código de Vestimenta</h2>
+            <div class="dress-code">
+                <div class="dress-code-box">
+                    <div class="dress-code-title">✨</div>
+                    <p class="dress-code-text">Formal Elegante</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Confirmation -->
+        <section class="whatsapp-section">
+            <h2 class="section-title">Confirma tu Asistencia</h2>
+            <a href="https://wa.me/524772816805?text=Hola%20Violeta,%20confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Camila%20el%2010%20de%20enero" class="whatsapp-button" target="_blank">
+                <span style="font-size: 1.5rem;">📱</span>
+                Confirmar por WhatsApp
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Con cariño, Camila Espinoza Mejía</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">10 de Enero de 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown Timer
+        const countdownDate = new Date("2025-01-10T13:00:00").getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "<h2 style='text-align: center; color: #764ba2;'>¡El gran día ha llegado!</h2>";
+            }
+        };
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

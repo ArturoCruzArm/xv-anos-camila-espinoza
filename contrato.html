@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Servicios de Fotografía - Camila Espinoza Mejía</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #764ba2;
+        }
+
+        .header h1 {
+            color: #764ba2;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: #764ba2;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+        }
+
+        .info-value {
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .service-list {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .service-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-list li::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-right: 1rem;
+        }
+
+        .payment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .payment-table th,
+        .payment-table td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .payment-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05rem;
+        }
+
+        .payment-table tr:nth-child(even) {
+            background: white;
+        }
+
+        .payment-table .total-row {
+            background: #764ba2;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .terms {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .terms h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .terms ul {
+            color: #856404;
+            padding-left: 1.5rem;
+        }
+
+        .terms li {
+            margin-bottom: 0.5rem;
+        }
+
+        .signature-section {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .signature-box {
+            text-align: center;
+        }
+
+        .signature-line {
+            border-top: 2px solid #333;
+            margin: 3rem 1rem 0.5rem;
+            padding-top: 0.5rem;
+        }
+
+        .signature-label {
+            font-weight: 700;
+            color: #764ba2;
+            margin-top: 0.5rem;
+        }
+
+        .signature-name {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .highlight h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .signature-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>CONTRATO DE SERVICIOS</h1>
+            <p>Fotografía Profesional para Evento de XV Años</p>
+        </div>
+
+        <!-- Información del Evento -->
+        <div class="section">
+            <h2 class="section-title">📋 Información del Evento</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Quinceañera</div>
+                    <div class="info-value">Camila Espinoza Mejía</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Fecha del Evento</div>
+                    <div class="info-value">10 de Enero, 2025</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Contratante</div>
+                    <div class="info-value">Violeta Mejía</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Teléfono</div>
+                    <div class="info-value">477 281 6805</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detalles del Evento -->
+        <div class="section">
+            <h2 class="section-title">📍 Ubicaciones y Horarios</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Ceremonia Religiosa</div>
+                    <div class="info-value">
+                        <strong>1:00 PM</strong><br>
+                        Templo del Niño de la Salud<br>
+                        La Martinica, León, Gto.
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Recepción</div>
+                    <div class="info-value">
+                        <strong>3:00 PM</strong><br>
+                        Salón La Casona<br>
+                        La Martinica, León, Gto.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Código de Vestimenta -->
+        <div class="section">
+            <h2 class="section-title">👗 Código de Vestimenta</h2>
+            <div class="highlight">
+                <h3>Formal Elegante</h3>
+            </div>
+        </div>
+
+        <!-- Servicios Contratados -->
+        <div class="section">
+            <h2 class="section-title">📸 Servicios Contratados</h2>
+            <div class="highlight">
+                <h3>Paquete 2 de Fotografía</h3>
+                <p style="font-size: 1.2rem; margin-top: 0.5rem;">100 Fotografías Profesionales</p>
+            </div>
+            <div class="service-list">
+                <ul>
+                    <li>Cobertura completa de ceremonia religiosa</li>
+                    <li>Cobertura completa de recepción</li>
+                    <li>100 fotografías profesionales editadas en alta resolución</li>
+                    <li>Galería digital con descarga incluida</li>
+                    <li>Entrega en formato digital</li>
+                    <li>Sin sesión previa (solo evento del día)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Servicios NO Incluidos -->
+        <div class="section">
+            <h2 class="section-title">❌ Servicios NO Incluidos</h2>
+            <div class="service-list">
+                <ul style="opacity: 0.7;">
+                    <li style="text-decoration: line-through;">Video del evento</li>
+                    <li style="text-decoration: line-through;">Sesión previa con vestido</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Detalles de Pago -->
+        <div class="section">
+            <h2 class="section-title">💰 Detalles de Pago</h2>
+            <table class="payment-table">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Monto</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Paquete 2 - Fotografía</strong></td>
+                        <td>$3,500.00</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Anticipo pagado (11/Nov/2025)</td>
+                        <td>$1,000.00</td>
+                        <td><span style="color: #28a745; font-weight: bold;">✓ PAGADO</span></td>
+                    </tr>
+                    <tr>
+                        <td>Saldo pendiente</td>
+                        <td>$2,500.00</td>
+                        <td><span style="color: #ffc107; font-weight: bold;">⏳ PENDIENTE</span></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="2">TOTAL DEL PAQUETE</td>
+                        <td>$3,500.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Nota sobre Precio Especial -->
+        <div class="section">
+            <div class="terms" style="background: #d4edda; border-left-color: #28a745;">
+                <h4 style="color: #155724;">💚 Precio Especial Aplicado</h4>
+                <p style="color: #155724;">
+                    <strong>Valor regular del paquete:</strong> $6,000.00<br>
+                    <strong>Precio especial contratado:</strong> $3,500.00<br>
+                    <strong>Ahorro total:</strong> $2,500.00
+                </p>
+            </div>
+        </div>
+
+        <!-- Términos y Condiciones -->
+        <div class="section">
+            <h2 class="section-title">📜 Términos y Condiciones</h2>
+            <div class="terms">
+                <h4>Importante - Por favor lea con atención:</h4>
+                <ul>
+                    <li>El anticipo de $1,000.00 fue pagado el día 11 de noviembre de 2025, asegurando la fecha del evento.</li>
+                    <li>El saldo pendiente de $2,500.00 deberá ser liquidado antes o el día del evento.</li>
+                    <li>La cobertura fotográfica incluye ceremonia religiosa y recepción completa.</li>
+                    <li>Se entregarán 100 fotografías profesionales editadas en formato digital de alta resolución.</li>
+                    <li>El tiempo de entrega de las fotografías editadas es de 15 a 30 días hábiles después del evento.</li>
+                    <li>NO se incluye servicio de video ni sesión previa en este paquete.</li>
+                    <li>Este contrato es válido únicamente para la fecha especificada: 10 de enero de 2025.</li>
+                    <li>En caso de cancelación por parte del contratante, el anticipo NO es reembolsable.</li>
+                    <li>En caso de fuerza mayor que impida la asistencia del fotógrafo, se reembolsará el 100% del anticipo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contacto del Fotógrafo -->
+        <div class="section">
+            <h2 class="section-title">📞 Información de Contacto</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Fotógrafo</div>
+                    <div class="info-value">Arturo Cruz</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Estudio</div>
+                    <div class="info-value">
+                        Padilla 112<br>
+                        Cumbres de Arbide, León, Gto.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Firmas -->
+        <div class="signature-section">
+            <div class="signature-box">
+                <div class="signature-line">
+                    <div class="signature-label">Contratante</div>
+                    <div class="signature-name">Violeta Mejía</div>
+                </div>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line">
+                    <div class="signature-label">Prestador de Servicio</div>
+                    <div class="signature-name">Arturo Cruz - Fotógrafo</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Fecha de elaboración del contrato:</strong> 12 de Noviembre de 2025</p>
+            <p style="margin-top: 1rem;">Este documento constituye un acuerdo entre las partes mencionadas</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para imprimir
+        function printContract() {
+            window.print();
+        }
+
+        // Agregar botón de impresión (opcional)
+        window.addEventListener('load', function() {
+            const printButton = document.createElement('div');
+            printButton.innerHTML = '<button onclick="window.print()" style="position: fixed; bottom: 20px; right: 20px; padding: 15px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 50px; cursor: pointer; font-size: 16px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000;">🖨️ Imprimir Contrato</button>';
+            document.body.appendChild(printButton);
+        });
+    </script>
+</body>
+</html>
